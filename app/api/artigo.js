@@ -7,8 +7,8 @@ api.adiciona = function(req, res) {
 
   model
     .create(req.body)
-      .then(function(){
-        res.json(artigo);
+      .then(function( artigo ){
+        res.status(200).json(artigo);
 
       }, function(error) {
         console.log(error);
@@ -35,8 +35,8 @@ api.lista = function(req, res) {
 
   model
     .find({})
-    .then(function(politicos) {
-      res.json(politicos);
+    .then(function(artigos) {
+      res.json(artigos);
 
     }, function(error) {
       console.log(error);
@@ -49,9 +49,9 @@ api.buscaPorId = function(req, res) {
 
   model
     .findById(req.params.id)
-      .then(function(politico){
-        if(!politico) throw Error('Politico não encontrada');
-        res.json(partido);
+      .then(function(artigo){
+        if(!artigo) throw Error('Politico não encontrada');
+        res.json(artigo);
 
       }, function(error){
         console.log(error);

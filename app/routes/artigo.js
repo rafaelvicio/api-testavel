@@ -1,12 +1,12 @@
 module.exports = function(app){
 
-  var api = app.api.politico;
+  var api = app.api.artigo;
 
   app.route('/api/artigos')
     .get(api.lista)
     .post(api.adiciona);
 
-  app.route('/api/Artigos/:id')
+  app.route('/api/artigos/:id')
       .get(api.buscaPorId)
       .delete(api.removePorId)
       .put(api.atualiza);
